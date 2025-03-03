@@ -13,14 +13,15 @@
         }
         
         .container {
-            width: 1200px;
+            max-width: 1200px;
+            width: 100%;
             margin: 50px auto;
             background-color: #E85D3F;
             min-height: 800px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         }
         
-        .header {
+        header {
             background-color: #E85D3F;
             color: black;
             padding: 30px;
@@ -66,12 +67,15 @@
         
         .news-section {
             margin: 20px auto;
-            width: 900px;
+            max-width: 900px;
+            width: 100%;
         }
         
         .news-image {
-            width: 900px;
-            height: 400px;
+            max-width: 900px;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 900/400;
             object-fit: cover;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -107,7 +111,8 @@
         }
         
         .content p {
-            width: 800px;
+            max-width: 800px;
+            width: 100%;
             margin: 20px auto;
             font-size: 1.2em;
             line-height: 1.6;
@@ -131,7 +136,7 @@
         }
         
         .view-post-button {
-            display: block;
+            display: inline-block;
             background-color: #FFD700;
             border: none;
             padding: 12px 30px;
@@ -143,42 +148,70 @@
             position: relative;
             z-index: 2;
         }
+        
+        @media (max-width: 1200px) {
+            .container {
+                width: 95%;
+                margin: 20px auto;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-item {
+                margin: 5px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .news-section {
+                width: 95%;
+            }
+            
+            .content p {
+                width: 95%;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header>
             <h1 class="title">Dragon Ball</h1>
             <p class="subtitle">The legendary saga that defined a generation</p>
-        </div>
+        </header>
         
         <nav class="nav-menu">
-            <a href="#" class="nav-item">👤 Characters</a>
-            <a href="#" class="nav-item">⚔️ Epic Battles</a>
-            <a href="#" class="nav-item">⭐ Transformations</a>
-            <a href="#" class="nav-item">📖 Series Legacy</a>
+            <a href="#characters" class="nav-item">👤 Characters</a>
+            <a href="#battles" class="nav-item">⚔️ Epic Battles</a>
+            <a href="#transformations" class="nav-item">⭐ Transformations</a>
+            <a href="#legacy" class="nav-item">📖 Series Legacy</a>
         </nav>
         
-        <div class="content">
-            <div class="news-section">
+        <main class="content">
+            <section class="news-section">
                 <h2>Recent Dragon Ball News:</h2>
                 <div class="slider">
                     <img src="/api/placeholder/900/400" alt="Dragon Ball Characters" class="news-image">
                     <div class="slider-controls">
-                        <span class="slider-dot active"></span>
-                        <span class="slider-dot"></span>
-                        <span class="slider-dot"></span>
-                        <span class="slider-dot"></span>
+                        <span class="slider-dot active" aria-label="Slide 1"></span>
+                        <span class="slider-dot" aria-label="Slide 2"></span>
+                        <span class="slider-dot" aria-label="Slide 3"></span>
+                        <span class="slider-dot" aria-label="Slide 4"></span>
                     </div>
                 </div>
-                <button class="view-post-button">View Post</button>
-            </div>
+                <button type="button" class="view-post-button">View Post</button>
+            </section>
             
-            <h2>Join the Adventure of Dragon Ball!</h2>
-            <p>Follow and learn the epic journey of Goku and friends as they protect Earth, fight legendary battles, and transcend limits. Experience the series that revolutionized anime and inspired generations.</p>
-            
-            <button class="explore-button">Explore Now</button>
-        </div>
+            <section>
+                <h2>Join the Adventure of Dragon Ball!</h2>
+                <p>Follow and learn the epic journey of Goku and friends as they protect Earth, fight legendary battles, and transcend limits. Experience the series that revolutionized anime and inspired generations.</p>
+                
+                <button type="button" class="explore-button">Explore Now</button>
+            </section>
+        </main>
     </div>
 </body>
 </html>
