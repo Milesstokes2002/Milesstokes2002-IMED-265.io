@@ -4,182 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dragon Ball</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #1a1a1a;
-        }
-        
-        .container {
-            max-width: 1200px;
-            width: 100%;
-            margin: 50px auto;
-            background-color: #E85D3F;
-            min-height: 800px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        header {
-            background-color: #E85D3F;
-            color: black;
-            padding: 30px;
-        }
-        
-        .title {
-            font-size: 3.5em;
-            margin: 10px 0;
-            font-weight: bold;
-        }
-        
-        .subtitle {
-            font-size: 1.5em;
-            margin: 15px 0;
-        }
-        
-        .nav-menu {
-            display: flex;
-            justify-content: space-between;
-            background-color: #E8B39D;
-            padding: 15px 40px;
-            margin: 0 auto;
-        }
-        
-        .nav-item {
-            color: black;
-            text-decoration: none;
-            padding: 10px 30px;
-            font-size: 1.2em;
-            transition: background-color 0.3s;
-        }
-        
-        .nav-item:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-        
-        .slider {
-            background-color: #E85D3F;
-            padding: 20px;
-            position: relative;
-        }
-        
-        .news-section {
-            margin: 20px auto;
-            max-width: 900px;
-            width: 100%;
-        }
-        
-        .news-image {
-            max-width: 900px;
-            width: 100%;
-            height: auto;
-            aspect-ratio: 900/400;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .slider-controls {
-            margin: 20px 0;
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .slider-dot {
-            height: 12px;
-            width: 12px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            margin: 0 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .slider-dot.active {
-            background-color: #2196F3;
-        }
-        
-        .content {
-            padding: 40px;
-            background-color: #E85D3F;
-            color: black;
-        }
-        
-        .content p {
-            max-width: 800px;
-            width: 100%;
-            margin: 20px auto;
-            font-size: 1.2em;
-            line-height: 1.6;
-        }
-        
-        .explore-button {
-            background-color: #FFD700;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.3em;
-            border-radius: 8px;
-            cursor: pointer;
-            margin: 30px 0;
-            transition: transform 0.2s, box-shadow 0.2s;
-            font-weight: bold;
-        }
-        
-        .explore-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        
-        .view-post-button {
-            display: inline-block;
-            background-color: #FFD700;
-            border: none;
-            padding: 12px 30px;
-            font-size: 1.2em;
-            border-radius: 6px;
-            cursor: pointer;
-            margin: 20px auto;
-            font-weight: bold;
-            position: relative;
-            z-index: 2;
-        }
-        
-        @media (max-width: 1200px) {
-            .container {
-                width: 95%;
-                margin: 20px auto;
-            }
-            
-            .nav-menu {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .nav-item {
-                margin: 5px;
-            }
-        }
-        
-        @media (max-width: 900px) {
-            .news-section {
-                width: 95%;
-            }
-            
-            .content p {
-                width: 95%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
             <h1 class="title">Dragon Ball</h1>
+            <img src="x.png" alt="Dragon Ball Logo" class="logo-animation">
             <p class="subtitle">The legendary saga that defined a generation</p>
         </header>
         
@@ -211,6 +42,38 @@
                 
                 <button type="button" class="explore-button">Explore Now</button>
             </section>
+
+            <section class="fan-gallery">
+                <h2>Fan Art Gallery</h2>
+                <p>Explore amazing fan art created by Dragon Ball enthusiasts from around the world.</p>
+                <img src="/api/placeholder/600/300" alt="Fan Art Preview" class="gallery-image">
+            </section>
+
+            <section class="power-level">
+                <h2>Power Level Tracker</h2>
+                <p>Compare your favorite characters' power levels across different sagas.</p>
+                <button type="button" class="track-button">Track Power Levels</button>
+            </section>
+
+            <section class="quote-section">
+                <h2>Legendary Quotes</h2>
+                <blockquote>
+                    "Power comes in response to a need, not a desire. You have to create that need." — Goku
+                </blockquote>
+            </section>
+
+            <section class="merch-store">
+                <h2>Official Merchandise</h2>
+                <p>Grab exclusive Dragon Ball merch, from action figures to apparel.</p>
+                <button type="button" class="shop-button">Shop Now</button>
+            </section>
+
+            <section class="event-calendar">
+                <h2>Dragon Ball Events</h2>
+                <p>Stay updated with upcoming conventions, meetups, and special screenings.</p>
+                <button type="button" class="calendar-button">View Events</button>
+            </section>
+
         </main>
     </div>
 </body>

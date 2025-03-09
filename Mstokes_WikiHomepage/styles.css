@@ -1,0 +1,146 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    background: linear-gradient(135deg, #ffcc00, #ff6600);
+    color: #fff;
+}
+
+.logo-animation {
+    width: 150px;
+    height: auto;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.nav-item:hover {
+    opacity: 0.8;
+}
+
+.news-section {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-controls {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.slider-dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.slider-dot.active {
+    opacity: 0.9;
+}
+
+.view-post-button, .explore-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.view-post-button:hover, .explore-button:hover {
+    opacity: 0.8;
+}
+
+/* Additions from 5 */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-to-top:hover {
+    opacity: 0.8;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
