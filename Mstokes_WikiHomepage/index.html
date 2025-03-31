@@ -26,6 +26,75 @@
             font-weight: bold;
             text-decoration: underline;
         }
+        .character-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+            background-color: #f8f9fa;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .character-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .character-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .character-card h3 {
+            color: #ff6b00;
+            margin-bottom: 10px;
+        }
+        .character-card p {
+            color: #555;
+            flex-grow: 1;
+        }
+        .series-heading {
+            color: #ff6b00;
+            border-bottom: 2px solid #ff6b00;
+            padding-bottom: 10px;
+            margin: 30px 0 20px;
+        }
+        .character-container {
+            margin-bottom: 20px;
+            height: 100%;
+        }
+        .characters-header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-left: 5px solid #ff6b00;
+        }
+        .characters-header h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .characters-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        .load-more-btn {
+            background-color: #ff6b00;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        .load-more-btn:hover {
+            background-color: #e65c00;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -148,14 +217,123 @@
             <div id="characters" class="content-section">
                 <div class="row">
                     <div class="col-12">
-                        <h2>Characters</h2>
-                        <div class="work-in-progress">
-                            <h3>Work in Progress</h3>
-                            <p>We're currently updating this page with all your favorite Dragon Ball characters!</p>
-                            <div class="spinner-border text-primary mt-3" role="status">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
+                        <div class="characters-header">
+                            <h2>Dragon Ball Characters</h2>
+                            <p>Explore the legendary heroes and villains that make up the Dragon Ball universe!</p>
                         </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="series-heading">Original Dragon Ball Series (Pre-Z)</h2>
+                    </div>
+                </div>
+                
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                    <!-- Son Goku -->
+                    <div class="col character-container">
+                        <div class="character-card">
+                            <img src="Goku.png" alt="Son Goku" onerror="this.src='https://via.placeholder.com/200x200?text=Goku'">
+                            <h3>Son Goku</h3>
+                            <p>Starts as a child with a tail, orange gi, and Power Pole. Often seen with his Nyoibo (Power Pole) and flying on Kinto-Un (Flying Nimbus).</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Bulma -->
+                    <div class="col character-container">
+                        <div class="character-card">
+                            <img src="Bulma.png" alt="Bulma" onerror="this.src='https://via.placeholder.com/200x200?text=Bulma'">
+                            <h3>Bulma</h3>
+                            <p>Blue/purple hair, often in futuristic outfits. A genius inventor and one of Goku's first friends on his journey.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Master Roshi -->
+                    <div class="col character-container">
+                        <div class="character-card">
+                            <img src="Master%20Roshi.png" alt="Master Roshi" onerror="this.src='https://via.placeholder.com/200x200?text=Master+Roshi'">
+                            <h3>Master Roshi (Kame-Sennin)</h3>
+                            <p>Old man with sunglasses, turtle shell, and beard. The martial arts master who trains Goku and Krillin.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Yamcha -->
+                    <div class="col character-container">
+                        <div class="character-card">
+                            <img src="Yamcha.png" alt="Yamcha" onerror="this.src='https://via.placeholder.com/200x200?text=Yamcha'">
+                            <h3>Yamcha</h3>
+                            <p>Bandit with scar, later becomes a fighter in a green/yellow outfit. Initially Goku's enemy before becoming an ally.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Oolong -->
+                    <div class="col character-container">
+                        <div class="character-card">
+                            <img src="Oloong.png" alt="Oolong" onerror="this.src='https://via.placeholder.com/200x200?text=Oolong'">
+                            <h3>Oolong</h3>
+                            <p>Small, pig-like shapeshifter. Can transform for up to five minutes at a time before needing a break.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Pu'ar -->
+                    <div class="col character-container">
+                        <div class="character-card">
+                            <img src="Pu'ar.png" alt="Pu'ar" onerror="this.src='https://via.placeholder.com/200x200?text=Puar'">
+                            <h3>Pu'ar</h3>
+                            <p>Blue cat-like creature, Yamcha's companion. Has the ability to shapeshift into various forms.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Chi-Chi -->
+                    <div class="col character-container">
+                        <div class="character-card">
+                            <img src="Chi-Chi.png" alt="Chi-Chi" onerror="this.src='https://via.placeholder.com/200x200?text=Chi-Chi'">
+                            <h3>Chi-Chi</h3>
+                            <p>First appears as a young girl in armor (later becomes Goku's wife). Daughter of the Ox King.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Krillin -->
+                    <div class="col character-container">
+                        <div class="character-card">
+                            <img src="Krillin.png" alt="Krillin" onerror="this.src='https://via.placeholder.com/200x200?text=Krillin'">
+                            <h3>Krillin</h3>
+                            <p>Bald, short martial artist (initially Goku's rival). Becomes Goku's best friend and loyal companion.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Tien Shinhan -->
+                    <div class="col character-container">
+                        <div class="character-card">
+                            <img src="Tien.png" alt="Tien Shinhan" onerror="this.src='https://via.placeholder.com/200x200?text=Tien+Shinhan'">
+                            <h3>Tien Shinhan</h3>
+                            <p>Three-eyed martial artist in a white/blue outfit. Former student of the Crane School and rival to Goku.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Chiaotzu -->
+                    <div class="col character-container">
+                        <div class="character-card">
+                            <img src="Chiaotzu.png" alt="Chiaotzu" onerror="this.src='https://via.placeholder.com/200x200?text=Chiaotzu'">
+                            <h3>Chiaotzu</h3>
+                            <p>Small, pale, doll-like fighter (Tien's partner). Has psychic abilities including telekinesis.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Piccolo -->
+                    <div class="col character-container">
+                        <div class="character-card">
+                            <img src="Piccolo.png" alt="Piccolo" onerror="this.src='https://via.placeholder.com/200x200?text=Piccolo'">
+                            <h3>Piccolo (King Piccolo & Jr.)</h3>
+                            <p>Green-skinned Namekian (first as a villain, later an ally). Initially Goku's enemy, later becomes a mentor to Gohan.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-12 text-center">
+                        <button type="button" class="btn load-more-btn">Load More Characters</button>
                     </div>
                 </div>
             </div>
