@@ -1,7 +1,4 @@
 /* styles.css */
-* {
-  box-sizing: border-box;
-}
 
 body {
   font-family: Arial, sans-serif;
@@ -180,11 +177,7 @@ blockquote {
 }
 
 /* Responsive design */
-@media (min-width: 768px) {
-  .content {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
+
   
   .news-section {
     grid-column: span 2;

@@ -26,6 +26,7 @@
             font-weight: bold;
             text-decoration: underline;
         }
+        /* Updated character card style for square layout */
         .character-card {
             border: 1px solid #ddd;
             border-radius: 10px;
@@ -33,9 +34,11 @@
             margin-bottom: 20px;
             transition: transform 0.3s ease;
             background-color: #f8f9fa;
-            height: 100%;
             display: flex;
             flex-direction: column;
+            height: 350px; /* Fixed height for square appearance */
+            width: 100%;
+            overflow: hidden;
         }
         .character-card:hover {
             transform: translateY(-5px);
@@ -43,7 +46,7 @@
         }
         .character-card img {
             width: 100%;
-            height: 200px;
+            height: 180px; /* Fixed height for images */
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 10px;
@@ -55,16 +58,14 @@
         .character-card p {
             color: #555;
             flex-grow: 1;
+            font-size: 0.9rem;
+            overflow-y: auto;
         }
         .series-heading {
             color: #ff6b00;
             border-bottom: 2px solid #ff6b00;
             padding-bottom: 10px;
             margin: 30px 0 20px;
-        }
-        .character-container {
-            margin-bottom: 20px;
-            height: 100%;
         }
         .characters-header {
             background-color: #f8f9fa;
@@ -94,6 +95,68 @@
         .load-more-btn:hover {
             background-color: #e65c00;
             transform: scale(1.05);
+        }
+        /* Battle card styling */
+        .battle-card {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            background-color: #f8f9fa;
+            transition: transform 0.3s ease;
+        }
+        .battle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .battle-image {
+            width: 250px;
+            min-height: 200px;
+            object-fit: cover;
+        }
+        .battle-info {
+            padding: 20px;
+            flex-grow: 1;
+        }
+        .battle-info h3 {
+            color: #ff6b00;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ff6b00;
+            padding-bottom: 5px;
+        }
+        .battle-info p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        .battles-header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-left: 5px solid #ff6b00;
+        }
+        .battles-header h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .battles-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        /* Grid container with proper margins */
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 15px; /* Match Bootstrap container padding */
+        }
+        
+        /* Make sure all sections follow Bootstrap container structure */
+        .battle-section {
+            padding: 0 15px; /* Match Bootstrap container padding */
         }
     </style>
 </head>
@@ -186,6 +249,7 @@
                         <h2>Power Level Tracker</h2>
                         <p>Compare your favorite characters' power levels across different sagas.</p>
                         <button type="button" class="track-button">Track Power Levels</button>
+                         <a href="https://dragonball.fandom.com/wiki/List_of_Power_Levels/">Power levels</a> 
                     </section>
                 </div>
 
@@ -196,24 +260,10 @@
                             "Power comes in response to a need, not a desire. You have to create that need." — Goku
                         </blockquote>
                     </section>
-                </div>
-
-                <div class="row">
-                    <section class="merch-store col-md-6">
-                        <h2>Official Merchandise</h2>
-                        <p>Grab exclusive Dragon Ball merch, from action figures to apparel.</p>
-                        <button type="button" class="shop-button">Shop Now</button>
-                    </section>
-
-                    <section class="event-calendar col-md-6">
-                        <h2>Dragon Ball Events</h2>
-                        <p>Stay updated with upcoming conventions, meetups, and special screenings.</p>
-                        <button type="button" class="calendar-button">View Events</button>
-                    </section>
-                </div>
+               
             </div>
             
-            <!-- Characters Page -->
+            <!-- Characters Page - FIXED alignment issues -->
             <div id="characters" class="content-section">
                 <div class="row">
                     <div class="col-12">
@@ -230,103 +280,86 @@
                     </div>
                 </div>
                 
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-                    <!-- Son Goku -->
-                    <div class="col character-container">
-                        <div class="character-card">
-                            <img src="Goku.png" alt="Son Goku" onerror="this.src='https://via.placeholder.com/200x200?text=Goku'">
-                            <h3>Son Goku</h3>
-                            <p>Starts as a child with a tail, orange gi, and Power Pole. Often seen with his Nyoibo (Power Pole) and flying on Kinto-Un (Flying Nimbus).</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Bulma -->
-                    <div class="col character-container">
-                        <div class="character-card">
-                            <img src="Bulma.png" alt="Bulma" onerror="this.src='https://via.placeholder.com/200x200?text=Bulma'">
-                            <h3>Bulma</h3>
-                            <p>Blue/purple hair, often in futuristic outfits. A genius inventor and one of Goku's first friends on his journey.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Master Roshi -->
-                    <div class="col character-container">
-                        <div class="character-card">
-                            <img src="Master%20Roshi.png" alt="Master Roshi" onerror="this.src='https://via.placeholder.com/200x200?text=Master+Roshi'">
-                            <h3>Master Roshi (Kame-Sennin)</h3>
-                            <p>Old man with sunglasses, turtle shell, and beard. The martial arts master who trains Goku and Krillin.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Yamcha -->
-                    <div class="col character-container">
-                        <div class="character-card">
-                            <img src="Yamcha.png" alt="Yamcha" onerror="this.src='https://via.placeholder.com/200x200?text=Yamcha'">
-                            <h3>Yamcha</h3>
-                            <p>Bandit with scar, later becomes a fighter in a green/yellow outfit. Initially Goku's enemy before becoming an ally.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Oolong -->
-                    <div class="col character-container">
-                        <div class="character-card">
-                            <img src="Oloong.png" alt="Oolong" onerror="this.src='https://via.placeholder.com/200x200?text=Oolong'">
-                            <h3>Oolong</h3>
-                            <p>Small, pig-like shapeshifter. Can transform for up to five minutes at a time before needing a break.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Pu'ar -->
-                    <div class="col character-container">
-                        <div class="character-card">
-                            <img src="Pu'ar.png" alt="Pu'ar" onerror="this.src='https://via.placeholder.com/200x200?text=Puar'">
-                            <h3>Pu'ar</h3>
-                            <p>Blue cat-like creature, Yamcha's companion. Has the ability to shapeshift into various forms.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Chi-Chi -->
-                    <div class="col character-container">
-                        <div class="character-card">
-                            <img src="Chi-Chi.png" alt="Chi-Chi" onerror="this.src='https://via.placeholder.com/200x200?text=Chi-Chi'">
-                            <h3>Chi-Chi</h3>
-                            <p>First appears as a young girl in armor (later becomes Goku's wife). Daughter of the Ox King.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Krillin -->
-                    <div class="col character-container">
-                        <div class="character-card">
-                            <img src="Krillin.png" alt="Krillin" onerror="this.src='https://via.placeholder.com/200x200?text=Krillin'">
-                            <h3>Krillin</h3>
-                            <p>Bald, short martial artist (initially Goku's rival). Becomes Goku's best friend and loyal companion.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Tien Shinhan -->
-                    <div class="col character-container">
-                        <div class="character-card">
-                            <img src="Tien.png" alt="Tien Shinhan" onerror="this.src='https://via.placeholder.com/200x200?text=Tien+Shinhan'">
-                            <h3>Tien Shinhan</h3>
-                            <p>Three-eyed martial artist in a white/blue outfit. Former student of the Crane School and rival to Goku.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Chiaotzu -->
-                    <div class="col character-container">
-                        <div class="character-card">
-                            <img src="Chiaotzu.png" alt="Chiaotzu" onerror="this.src='https://via.placeholder.com/200x200?text=Chiaotzu'">
-                            <h3>Chiaotzu</h3>
-                            <p>Small, pale, doll-like fighter (Tien's partner). Has psychic abilities including telekinesis.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Piccolo -->
-                    <div class="col character-container">
-                        <div class="character-card">
-                            <img src="Piccolo.png" alt="Piccolo" onerror="this.src='https://via.placeholder.com/200x200?text=Piccolo'">
-                            <h3>Piccolo (King Piccolo & Jr.)</h3>
-                            <p>Green-skinned Namekian (first as a villain, later an ally). Initially Goku's enemy, later becomes a mentor to Gohan.</p>
+                <!-- Wrap the grid in a row and column for proper alignment -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="characters-grid">
+                            <!-- Son Goku -->
+                            <div class="character-card">
+                                <img src="Goku.png" alt="Son Goku" onerror="this.src='https://via.placeholder.com/200x200?text=Goku'">
+                                <h3>Son Goku</h3>
+                                <p>Starts as a child with a tail, orange gi, and Power Pole. Often seen with his Nyoibo (Power Pole) and flying on Kinto-Un (Flying Nimbus).</p>
+                            </div>
+                            
+                            <!-- Bulma -->
+                            <div class="character-card">
+                                <img src="Bulma.png" alt="Bulma" onerror="this.src='https://via.placeholder.com/200x200?text=Bulma'">
+                                <h3>Bulma</h3>
+                                <p>Blue/purple hair, often in futuristic outfits. A genius inventor and one of Goku's first friends on his journey.</p>
+                            </div>
+                            
+                            <!-- Master Roshi -->
+                            <div class="character-card">
+                                <img src="Master%20Roshi.png" alt="Master Roshi" onerror="this.src='https://via.placeholder.com/200x200?text=Master+Roshi'">
+                                <h3>Master Roshi (Kame-Sennin)</h3>
+                                <p>Old man with sunglasses, turtle shell, and beard. The martial arts master who trains Goku and Krillin.</p>
+                            </div>
+                            
+                            <!-- Yamcha -->
+                            <div class="character-card">
+                                <img src="Yamcha.png" alt="Yamcha" onerror="this.src='https://via.placeholder.com/200x200?text=Yamcha'">
+                                <h3>Yamcha</h3>
+                                <p>Bandit with scar, later becomes a fighter in a green/yellow outfit. Initially Goku's enemy before becoming an ally.</p>
+                            </div>
+                            
+                            <!-- Oolong -->
+                            <div class="character-card">
+                                <img src="Oloong.png" alt="Oolong" onerror="this.src='https://via.placeholder.com/200x200?text=Oolong'">
+                                <h3>Oolong</h3>
+                                <p>Small, pig-like shapeshifter. Can transform for up to five minutes at a time before needing a break.</p>
+                            </div>
+                            
+                            <!-- Pu'ar -->
+                            <div class="character-card">
+                                <img src="Pu'ar.png" alt="Pu'ar" onerror="this.src='https://via.placeholder.com/200x200?text=Puar'">
+                                <h3>Pu'ar</h3>
+                                <p>Blue cat-like creature, Yamcha's companion. Has the ability to shapeshift into various forms.</p>
+                            </div>
+                            
+                            <!-- Chi-Chi -->
+                            <div class="character-card">
+                                <img src="Chi-Chi.png" alt="Chi-Chi" onerror="this.src='https://via.placeholder.com/200x200?text=Chi-Chi'">
+                                <h3>Chi-Chi</h3>
+                                <p>First appears as a young girl in armor (later becomes Goku's wife). Daughter of the Ox King.</p>
+                            </div>
+                            
+                            <!-- Krillin -->
+                            <div class="character-card">
+                                <img src="Krillin.png" alt="Krillin" onerror="this.src='https://via.placeholder.com/200x200?text=Krillin'">
+                                <h3>Krillin</h3>
+                                <p>Bald, short martial artist (initially Goku's rival). Becomes Goku's best friend and loyal companion.</p>
+                            </div>
+                            
+                            <!-- Tien Shinhan -->
+                            <div class="character-card">
+                                <img src="Tien.png" alt="Tien Shinhan" onerror="this.src='https://via.placeholder.com/200x200?text=Tien+Shinhan'">
+                                <h3>Tien Shinhan</h3>
+                                <p>Three-eyed martial artist in a white/blue outfit. Former student of the Crane School and rival to Goku.</p>
+                            </div>
+                            
+                            <!-- Chiaotzu -->
+                            <div class="character-card">
+                                <img src="Chiaotzu.png" alt="Chiaotzu" onerror="this.src='https://via.placeholder.com/200x200?text=Chiaotzu'">
+                                <h3>Chiaotzu</h3>
+                                <p>Small, pale, doll-like fighter (Tien's partner). Has psychic abilities including telekinesis.</p>
+                            </div>
+                            
+                            <!-- Piccolo -->
+                            <div class="character-card">
+                                <img src="Piccolo.png" alt="Piccolo" onerror="this.src='https://via.placeholder.com/200x200?text=Piccolo'">
+                                <h3>Piccolo (King Piccolo & Jr.)</h3>
+                                <p>Green-skinned Namekian (first as a villain, later an ally). Initially Goku's enemy, later becomes a mentor to Gohan.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -338,56 +371,576 @@
                 </div>
             </div>
             
-            <!-- Battles Page -->
+            <!-- Battles Page - FIXED alignment issues -->
             <div id="battles" class="content-section">
                 <div class="row">
                     <div class="col-12">
-                        <h2>Epic Battles</h2>
-                        <div class="work-in-progress">
-                            <h3>Work in Progress</h3>
-                            <p>Our team is compiling the most epic battles in Dragon Ball history!</p>
-                            <div class="spinner-border text-danger mt-3" role="status">
-                                <span class="visually-hidden">Loading...</span>
+                        <div class="battles-header">
+                            <h2>Epic Dragon Ball Battles</h2>
+                            <p>Relive the most iconic confrontations that shaped the Dragon Ball universe!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Battle 1: Kid Goku vs. General Tao -->
+                        <div class="battle-card">
+                            <img src="General%20Tao%20battle.png" class="battle-image" alt="Kid Goku vs. General Tao" onerror="this.src='https://via.placeholder.com/250x200?text=Goku+vs+Tao'">
+                            <div class="battle-info">
+                                <h3>Kid Goku vs. General Tao</h3>
+                                <p><strong>Significance:</strong> A brutal awakening for young Goku, this was his first true taste of how deadly the Red Ribbon Army could be. Tao's cold-blooded assassination skills left a lasting impression, forcing Goku to train harder than ever before.</p>
                             </div>
                         </div>
+                        
+                        <!-- Battle 2: Kid Goku vs. General Blue -->
+                        <div class="battle-card">
+                            <img src="General%20Blue%20Batle.png" class="battle-image" alt="Kid Goku vs. General Blue" onerror="this.src='https://via.placeholder.com/250x200?text=Goku+vs+Blue'">
+                            <div class="battle-info">
+                                <h3>Kid Goku vs. General Blue</h3>
+                                <p><strong>Significance:</strong> Blue was cunning, ruthless, and one of the first villains to showcase psychic powers. Goku's win here wasn't just strength—it was grit, strategy, and a turning point in his Red Ribbon saga.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Battle 3: Kid Goku vs. Tien -->
+                        <div class="battle-card">
+                            <img src="Kid%20Goku%20vs.%20Tien.jpg" class="battle-image" alt="Kid Goku vs. Tien" onerror="this.src='https://via.placeholder.com/250x200?text=Goku+vs+Tien'">
+                            <div class="battle-info">
+                                <h3>Kid Goku vs. Tien</h3>
+                                <p><strong>Significance:</strong> This match in the World Martial Arts Tournament marked the beginning of Tien's transformation from a rival assassin to one of Goku's future allies. A classic battle of wills and techniques.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Battle 4: Kid Goku vs. Jackie Chun -->
+                        <div class="battle-card">
+                            <img src="Kid%20Goku%20vs.%20Jackie%20Chun.png" class="battle-image" alt="Kid Goku vs. Jackie Chun" onerror="this.src='https://via.placeholder.com/250x200?text=Goku+vs+Jackie+Chun'">
+                            <div class="battle-info">
+                                <h3>Kid Goku vs. Jackie Chun (Master Roshi)</h3>
+                                <p><strong>Significance:</strong> A foundational match that taught Goku humility. Roshi disguised as Jackie Chun reminded Goku that there's always someone stronger—and that growth requires patience.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Battle 5: Goku vs. Piccolo -->
+                        <div class="battle-card">
+                            <img src="Goku%20vs.%20Piccolo.png" class="battle-image" alt="Goku vs. Piccolo" onerror="this.src='https://via.placeholder.com/250x200?text=Goku+vs+Piccolo'">
+                            <div class="battle-info">
+                                <h3>Goku vs. Piccolo</h3>
+                                <p><strong>Significance:</strong> This final match of the 23rd Tenkaichi Budokai had high stakes. Piccolo, son of King Piccolo, was a literal threat to the world. Goku's win here cemented him as Earth's protector.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Battle 6: Goku & Piccolo vs. Raditz -->
+                        <div class="battle-card">
+                            <img src="Goku%20&%20Piccolo%20vs.%20Raditz.png" class="battle-image" alt="Goku & Piccolo vs. Raditz" onerror="this.src='https://via.placeholder.com/250x200?text=Goku+and+Piccolo+vs+Raditz'">
+                            <div class="battle-info">
+                                <h3>Goku & Piccolo vs. Raditz</h3>
+                                <p><strong>Significance:</strong> The fight that started it all in DBZ. Goku and Piccolo teaming up was unexpected, and Goku's sacrificial death shook the formula of the series, showing higher stakes and darker consequences.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Battle 7: Nappa vs. Z Fighters -->
+                        <div class="battle-card">
+                            <img src="Nappa%20vs.%20Z%20Fighters.png" class="battle-image" alt="Nappa vs. Z Fighters" onerror="this.src='https://via.placeholder.com/250x200?text=Nappa+vs+Z+Fighters'">
+                            <div class="battle-info">
+                                <h3>Nappa vs. Z Fighters</h3>
+                                <p><strong>Significance:</strong> The Z Fighters' first real test against Saiyan power. The deaths of Yamcha, Tien, Chiaotzu, and Piccolo gave this battle a deep emotional punch, raising the bar for future threats.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Battle 8: Goku vs. Vegeta -->
+                        <div class="battle-card">
+                            <img src="Goku%20vs.%20Vegeta.png" class="battle-image" alt="Goku vs. Vegeta" onerror="this.src='https://via.placeholder.com/250x200?text=Goku+vs+Vegeta'">
+                            <div class="battle-info">
+                                <h3>Goku vs. Vegeta (Saiyan Saga)</h3>
+                                <p><strong>Significance:</strong> A raw, brutal clash between two Saiyans destined to push each other forever. From Kaio-Ken to the Great Ape, this fight established Vegeta as a complex rival, not just a villain.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-12 text-center">
+                        <button type="button" class="btn load-more-btn">Load More Battles</button>
                     </div>
                 </div>
             </div>
             
             <!-- Transformations Page -->
-            <div id="transformations" class="content-section">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Transformations</h2>
-                        <div class="work-in-progress">
-                            <h3>Work in Progress</h3>
-                            <p>Stay tuned for a complete guide to all Dragon Ball transformations!</p>
-                            <div class="spinner-border text-warning mt-3" role="status">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
-                        </div>
-                    </div>
+           <div id="transformations" class="content-section">
+    <div class="row">
+        <div class="col-12">
+            <div class="characters-header">
+                <h2>Dragon Ball Transformations</h2>
+                <p>Discover the incredible power-ups and forms that revolutionized anime!</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <h2 class="series-heading">Dragon Ball Z Transformations</h2>
+        </div>
+    </div>
+    
+    <!-- Transformations Grid -->
+    <div class="row">
+        <div class="col-12">
+            <div class="characters-grid">
+                <!-- Super Saiyan -->
+                <div class="character-card">
+                    <img src="Super%20Saiyan.png" alt="Super Saiyan" onerror="this.src='https://via.placeholder.com/200x200?text=Super+Saiyan'">
+                    <h3>Super Saiyan</h3>
+                    <p>The legendary transformation first achieved by Goku against Frieza. Golden spiky hair, teal eyes, and a 50x power multiplier. Triggered by intense anger or need.</p>
+                </div>
+                
+                <!-- Super Saiyan 2 -->
+                <div class="character-card">
+                    <img src="Super%20Saiyan%202.png" alt="Super Saiyan 2" onerror="this.src='https://via.placeholder.com/200x200?text=Super+Saiyan+2'">
+                    <h3>Super Saiyan 2</h3>
+                    <p>First achieved by Gohan against Cell. More defined, sharper golden hair with electricity sparking around the body. 2x stronger than Super Saiyan (100x base).</p>
+                </div>
+                
+                <!-- Super Saiyan 3 -->
+                <div class="character-card">
+                    <img src="Super%20Saiyan%203.png" alt="Super Saiyan 3" onerror="this.src='https://via.placeholder.com/200x200?text=Super+Saiyan+3'">
+                    <h3>Super Saiyan 3</h3>
+                    <p>Mastered by Goku in the afterlife. Extremely long golden hair, no eyebrows, and intense aura. 4x stronger than Super Saiyan 2 (400x base) but rapidly drains energy.</p>
+                </div>
+                
+                <!-- Great Ape (Oozaru) -->
+                <div class="character-card">
+                    <img src="Great%20Ape%20(Oozaru).png" alt="Great Ape" onerror="this.src='https://via.placeholder.com/200x200?text=Great+Ape'">
+                    <h3>Great Ape (Oozaru)</h3>
+                    <p>Activated when a Saiyan with a tail looks at a full moon. Transforms into a giant monkey-like beast with 10x power increase, but typically loses control unless trained.</p>
+                </div>
+                
+                <!-- Kaio-ken -->
+                <div class="character-card">
+                    <img src="kaio-ken.png" alt="Kaio-ken" onerror="this.src='https://via.placeholder.com/200x200?text=Kaio-ken'">
+                    <h3>Kaio-ken</h3>
+                    <p>Taught to Goku by King Kai, this technique multiplies power, speed, and senses. Creates a red aura and can stack (×2, ×3, etc.), but damages the user's body with extended use.</p>
+                </div>
+                
+                <!-- Frieza's Forms -->
+                <div class="character-card">
+                    <img src="Frieza's%20Forms.png" alt="Frieza's Forms" onerror="this.src='https://via.placeholder.com/200x200?text=Frieza+Forms'">
+                    <h3>Frieza's Forms</h3>
+                    <p>Four distinct forms, each suppressing power. First form (horned), second form (taller), third form (elongated head), and final form (sleek, white with purple). 100% power bulks up his muscles.</p>
+                </div>
+                
+                <!-- Cell Forms -->
+                <div class="character-card">
+                    <img src="Cell%20Forms.png" alt="Cell Forms" onerror="this.src='https://via.placeholder.com/200x200?text=Cell+Forms'">
+                    <h3>Cell Forms</h3>
+                    <p>Three main forms: Imperfect (insect-like), Semi-Perfect (absorbing Android 17), and Perfect (absorbing Android 18). Super Perfect achieved after self-destruction and regeneration with Saiyan power.</p>
+                </div>
+                
+                <!-- Majin Form -->
+                <div class="character-card">
+                    <img src="Majin%20Form.png" alt="Majin Form" onerror="this.src='https://via.placeholder.com/200x200?text=Majin+Vegeta'">
+                    <h3>Majin Form</h3>
+                    <p>Vegeta willingly submits to Babidi's magic for power boost. Marked by the "M" symbol on the forehead and enhanced abilities, but at the cost of being controlled by dark magic.</p>
+                </div>
+                
+                <!-- Fusion Dance -->
+                <div class="character-card">
+                    <img src="Fusion%20Dance.png" alt="Fusion Dance" onerror="this.src='https://via.placeholder.com/200x200?text=Fusion+Dance'">
+                    <h3>Fusion Dance</h3>
+                    <p>Metamoran technique used by Goku and Vegeta to form Gogeta. Requires precise synchronization of power and movement. Lasts 30 minutes and creates a being stronger than the sum of its parts.</p>
+                </div>
+                
+                <!-- Potara Fusion -->
+                <div class="character-card">
+                    <img src="Potara%20Fusion.png" alt="Potara Fusion" onerror="this.src='https://via.placeholder.com/200x200?text=Potara+Fusion'">
+                    <h3>Potara Fusion</h3>
+                    <p>Supreme Kai earrings that fuse two beings when worn on opposite ears. Creates Vegito from Goku and Vegeta. Originally permanent (later retconned), and more powerful than Fusion Dance.</p>
+                </div>
+                
+                <!-- Ultimate/Mystic Gohan -->
+                <div class="character-card">
+                    <img src="Ultimate%20Gohan.png" alt="Ultimate Gohan" onerror="this.src='https://via.placeholder.com/200x200?text=Ultimate+Gohan'">
+                    <h3>Ultimate/Mystic Gohan</h3>
+                    <p>Elder Kai's ritual unlocks Gohan's full potential. No visible transformation except aura, but provides power beyond Super Saiyan levels without transformation drawbacks.</p>
+                </div>
+                
+                <!-- Buu Forms -->
+                <div class="character-card">
+                    <img src="Buu%20Forms.png" alt="Buu Forms" onerror="this.src='https://via.placeholder.com/200x200?text=Buu+Forms'">
+                    <h3>Buu Forms</h3>
+                    <p>Many forms including Fat Buu (childlike), Evil Buu (gray, thin), Super Buu (muscular, pink), and Kid Buu (small, pure evil). Each absorption changes personality and power level.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3 class="text-center mb-4">Transformation Power Scale</h3>
+            <div class="card p-4">
+                <div class="progress mb-3" style="height: 30px;">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Base Form</div>
+                </div>
+                <div class="progress mb-3" style="height: 30px;">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Kaio-ken</div>
+                </div>
+                <div class="progress mb-3" style="height: 30px;">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Super Saiyan</div>
+                </div>
+                <div class="progress mb-3" style="height: 30px;">
+                    <div class="progress-bar" role="progressbar" style="width: 70%; background-color: #ffc107;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">Super Saiyan 2</div>
+                </div>
+                <div class="progress mb-3" style="height: 30px;">
+                    <div class="progress-bar" role="progressbar" style="width: 90%; background-color: #ff9800;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">Super Saiyan 3</div>
+                </div>
+                <div class="progress" style="height: 30px;">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Ultimate/Mystic Form</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header" style="background-color: #ff6b00; color: white;">
+                    <h3 class="mb-0">How Transformations Work</h3>
+                </div>
+                <div class="card-body">
+                    <p>Dragon Ball Z transformations typically function by:</p>
+                    <ul>
+                        <li>Unlocking hidden potential within a character</li>
+                        <li>Converting ki (life energy) into physical power</li>
+                        <li>Manipulating cellular structure (in villains like Cell, Frieza)</li>
+                        <li>Emotional triggers (especially for Saiyans)</li>
+                        <li>Divine or magical intervention</li>
+                    </ul>
+                    <p>Most transformations come with significant energy consumption, which is why masters like Goku train to maintain forms efficiently.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header" style="background-color: #ff6b00; color: white;">
+                    <h3 class="mb-0">First Appearances</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Transformation</th>
+                                <th>First User</th>
+                                <th>Episode/Arc</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Super Saiyan</td>
+                                <td>Goku</td>
+                                <td>Frieza Saga</td>
+                            </tr>
+                            <tr>
+                                <td>Super Saiyan 2</td>
+                                <td>Gohan</td>
+                                <td>Cell Games</td>
+                            </tr>
+                            <tr>
+                                <td>Super Saiyan 3</td>
+                                <td>Goku</td>
+                                <td>Buu Saga</td>
+                            </tr>
+                            <tr>
+                                <td>Ultimate Form</td>
+                                <td>Gohan</td>
+                                <td>Buu Saga</td>
+                            </tr>
+                            <tr>
+                                <td>Fusion Dance</td>
+                                <td>Goten & Trunks</td>
+                                <td>Buu Saga</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <button type="button" class="btn load-more-btn">Explore More Transformations</button>
+        </div>
+    </div>
+</div>
+    <!-- Legacy Page Content -->
+<div id="legacy" class="content-section">
+    <div class="row">
+        <div class="col-12">
+            <div class="characters-header">
+                <h2>Dragon Ball Series Legacy</h2>
+                <p>Exploring how Akira Toriyama's masterpiece revolutionized anime and influenced global pop culture!</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <h2 class="series-heading">Cultural Impact</h2>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <p class="lead">Few anime series have shaped global entertainment like Dragon Ball. From its humble beginnings as a manga in 1984, this epic saga transformed anime from a niche interest into a worldwide phenomenon.</p>
+                    
+                    <p>Dragon Ball's journey from Japanese manga to global cultural touchstone represents one of the most successful crossovers in entertainment history. The adventures of Goku and his friends have transcended cultural and language barriers, becoming emblematic of anime itself to many around the world.</p>
+                    
+                    <p>The series pioneered many tropes now considered standard in shonen anime: power scaling, transformation sequences, tournament arcs, and the hero's journey toward ever-greater strength. Its influence extends far beyond anime, touching everything from Hollywood films to hip-hop lyrics.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header" style="background-color: #ff6b00; color: white;">
+                    <h3 class="mb-0">Revolutionizing Anime & Manga</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Established the modern shonen battle manga formula</li>
+                        <li class="list-group-item">Pioneered transformation sequences as dramatic power-ups</li>
+                        <li class="list-group-item">Perfected tournament arcs as storytelling devices</li>
+                        <li class="list-group-item">Introduced power scaling that's been emulated by countless series</li>
+                        <li class="list-group-item">Set the template for "training arc" storytelling</li>
+                        <li class="list-group-item">Transformed enemies into allies (Piccolo, Vegeta) became a genre staple</li>
+                        <li class="list-group-item">Demonstrated anime's potential for long-form epic storytelling</li>
+                    </ul>
                 </div>
             </div>
             
-            <!-- Legacy Page -->
-            <div id="legacy" class="content-section">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Series Legacy</h2>
-                        <div class="work-in-progress">
-                            <h3>Work in Progress</h3>
-                            <p>We're documenting the incredible legacy of the Dragon Ball franchise!</p>
-                            <div class="spinner-border text-info mt-3" role="status">
-                                <span class="visually-hidden">Loading...</span>
+            <div class="card mb-4">
+                <div class="card-header" style="background-color: #ff6b00; color: white;">
+                    <h3 class="mb-0">Global Merchandising Empire</h3>
+                </div>
+                <div class="card-body">
+                    <p>Dragon Ball has generated over $30 billion in merchandise sales worldwide, making it one of the most profitable media franchises in history. Its success spans:</p>
+                    <ul>
+                        <li>Video games (over 50 titles across all platforms)</li>
+                        <li>Action figures and collectibles</li>
+                        <li>Clothing and apparel</li>
+                        <li>Trading card games</li>
+                        <li>Theme park attractions</li>
+                        <li>Food products and collaborations</li>
+                    </ul>
+                    <img src="Dragon Ball Merchandise.png" class="img-fluid rounded mt-3" alt="Dragon Ball Merchandise" onerror="this.src='https://via.placeholder.com/400x250?text=Dragon+Ball+Merchandise'">
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header" style="background-color: #ff6b00; color: white;">
+                    <h3 class="mb-0">Influence on Western Media</h3>
+                </div>
+                <div class="card-body">
+                    <h5>Hollywood & Television</h5>
+                    <p>Dragon Ball's visual style and storytelling have influenced numerous Hollywood productions:</p>
+                    <ul>
+                        <li>The Matrix's bullet-time effects drew inspiration from anime like Dragon Ball</li>
+                        <li>Man of Steel's flight scenes borrowed from DBZ's kinetic aerial battles</li>
+                        <li>The CW's "The Flash" has referenced Dragon Ball's speed effects</li>
+                        <li>Powerscaling concepts have influenced superhero narratives</li>
+                    </ul>
+                    
+                    <h5>Music & Sports</h5>
+                    <p>References appear throughout pop culture:</p>
+                    <ul>
+                        <li>Hip-hop artists like Soulja Boy, Chris Brown, and Frank Ocean have referenced Dragon Ball in lyrics</li>
+                        <li>Athletes perform "Kamehameha" celebrations after scoring</li>
+                        <li>Professional fighters have adopted "Super Saiyan" as their nickname</li>
+                    </ul>
+                    
+                    <h5>Internet Culture</h5>
+                    <p>Dragon Ball has spawned countless memes and online phenomena:</p>
+                    <ul>
+                        <li>"It's Over 9000!" remains one of the internet's most enduring memes</li>
+                        <li>"This isn't even my final form" has transcended anime fandom</li>
+                        <li>Power-up sequences have been parodied in everything from Family Guy to The Simpsons</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header" style="background-color: #ff6b00; color: white;">
+                    <h3 class="mb-0">Breaking Barriers</h3>
+                </div>
+                <div class="card-body">
+                    <p>Dragon Ball helped anime cross significant cultural thresholds:</p>
+                    <ul>
+                        <li>One of the first anime series to achieve massive success on Western television</li>
+                        <li>Introduced millions of viewers to Japanese animation and culture</li>
+                        <li>Pioneered primetime anime programming slots in countries worldwide</li>
+                        <li>Created a bridge between Eastern and Western animation styles</li>
+                        <li>Established anime conventions and fan communities globally</li>
+                    </ul>
+                    <p>By the late 1990s, Dragon Ball Z had become a gateway anime for an entire generation, contributing significantly to anime becoming mainstream entertainment outside Japan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <h2 class="series-heading">Lasting Legacy</h2>
+        </div>
+        
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4>Timeline of Global Impact</h4>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h5>1984-1989</h5>
+                                <p>Original Dragon Ball manga serialization in Weekly Shōnen Jump begins a cultural phenomenon in Japan.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h5>1989-1996</h5>
+                                <p>Dragon Ball Z airs in Japan, revolutionizing action anime with its epic battles and power scaling.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h5>1995-2003</h5>
+                                <p>International expansion begins in earnest with dubbed versions appearing worldwide, creating massive new fanbases.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h5>1998-2008</h5>
+                                <p>Toonami and Cartoon Network broadcasts in North America establish Dragon Ball Z as a cultural touchstone for an entire generation.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h5>2009-2015</h5>
+                                <p>Dragon Ball Kai and revival films renew interest while original fans introduce the series to their children.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h5>2015-Present</h5>
+                                <p>Dragon Ball Super continues the saga for new generations, proving the franchise's enduring appeal across decades.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-header" style="background-color: #ff6b00; color: white;">
+                    <h3 class="mb-0">Cultural Themes</h3>
+                </div>
+                <div class="card-body">
+                    <p>Dragon Ball's universal appeal stems from its enduring themes:</p>
+                    <ul>
+                        <li><strong>Self-Improvement:</strong> Characters constantly train to surpass their limits</li>
+                        <li><strong>Friendship & Loyalty:</strong> The Z Fighters form bonds that transcend difference</li>
+                        <li><strong>Redemption:</strong> Villains like Vegeta and Piccolo find new paths</li>
+                        <li><strong>Hope:</strong> Even against impossible odds, heroes never surrender</li>
+                        <li><strong>Accepting Differences:</strong> Aliens, androids, and humans form a family</li>
+                    </ul>
+                    <p>These themes resonate across cultural boundaries, explaining why Dragon Ball has found fans in virtually every country.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header" style="background-color: #ff6b00; color: white;">
+                    <h3 class="mb-0">By The Numbers</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>300+ million</strong> manga volumes sold worldwide</li>
+                        <li class="list-group-item"><strong>80+</strong> countries where Dragon Ball has been broadcast</li>
+                        <li class="list-group-item"><strong>700+</strong> anime episodes across all series</li>
+                        <li class="list-group-item"><strong>20+</strong> theatrical films released</li>
+                        <li class="list-group-item"><strong>$30+ billion</strong> in total franchise revenue</li>
+                        <li class="list-group-item"><strong>50+</strong> video games released</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
     
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body quote-section">
+                    <blockquote class="blockquote text-center">
+                        <p class="mb-0">"Dragon Ball didn't just change anime—it changed how the world sees Japanese culture. It became a shared language for fans across continents, proving that great storytelling transcends all barriers."</p>
+                        <footer class="blockquote-footer">Animation historian</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <button type="button" class="btn load-more-btn">Explore More Legacy</button>
+        </div>
+    </div>
+    
+    <!-- Additional styling for the timeline -->
+    <style>
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline:before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 4px;
+            background: #ff6b00;
+            left: 50px;
+            top: 0;
+        }
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 70px;
+        }
+        .timeline-marker {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #ff6b00;
+            left: 44px;
+            top: 5px;
+        }
+        .timeline-content {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #ff6b00;
+        }
+        .timeline-content h5 {
+            color: #ff6b00;
+            margin-bottom: 10px;
+        }
+    </style>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         function showPage(pageId, clickedLink) {
