@@ -231,25 +231,50 @@
                     </div>
                 </section>
 
-                <div class="row">
-                    <section class="fan-gallery col-md-8">
-                        <h2>Fan Art Gallery</h2>
-                        <p>Explore amazing fan art created by Dragon Ball enthusiasts from around the world.</p>
-                        <img src="Fan%20Art%20Preview.png" class="gallery-image">
-                        <div class="slider-controls">
-                            <span class="slider-dot active" aria-label="Slide 1"></span>
-                            <span class="slider-dot" aria-label="Slide 2"></span>
-                            <span class="slider-dot" aria-label="Slide 3"></span>
-                            <span class="slider-dot" aria-label="Slide 4"></span>
-                        </div>
-                        <button type="button" class="view-post-button">View Post</button>
-                    </section>
+             <section class="fan-gallery col-md-8">
+    <h2>Fan Art Gallery</h2>
+    <p>Explore amazing fan art created by Dragon Ball enthusiasts from around the world.</p>
+    
+    <!-- Bootstrap Carousel for Fan Art -->
+    <div id="fanArtCarousel" class="carousel slide" data-bs-ride="carousel">
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#fanArtCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#fanArtCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#fanArtCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        
+        <!-- Carousel Content -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="Fan%20Art%202.jpg" class="d-block w-100 fan-art-image" alt="Fan Art 1">
+            </div>
+            <div class="carousel-item">
+                <img src="Fan%20Art%203.jpg" class="d-block w-100 fan-art-image" alt="Fan Art 2">
+            </div>
+            <div class="carousel-item">
+                <img src="Fan%20Art%204.jpg" class="d-block w-100 fan-art-image" alt="Fan Art 3">
+            </div>
+        </div>
+        
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#fanArtCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#fanArtCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    
+    <button type="button" class="view-post-button">View Post</button>
+</section>
 
                     <section class="power-level col-md-4">
                         <h2>Power Level Tracker</h2>
                         <p>Compare your favorite characters' power levels across different sagas.</p>
                         <button type="button" class="track-button">Track Power Levels</button>
-                         <a href="https://dragonball.fandom.com/wiki/List_of_Power_Levels/">Power levels</a> 
                     </section>
                 </div>
 
@@ -260,8 +285,9 @@
                             "Power comes in response to a need, not a desire. You have to create that need." — Goku
                         </blockquote>
                     </section>
+                </div>
+
                
-            </div>
             
             <!-- Characters Page - FIXED alignment issues -->
             <div id="characters" class="content-section">
@@ -672,8 +698,8 @@
         </div>
     </div>
 </div>
-    <!-- Legacy Page Content -->
-<div id="legacy" class="content-section">
+            
+            <div id="legacy" class="content-section">
     <div class="row">
         <div class="col-12">
             <div class="characters-header">
@@ -941,6 +967,7 @@
         }
     </style>
 </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         function showPage(pageId, clickedLink) {
